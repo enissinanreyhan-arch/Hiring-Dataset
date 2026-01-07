@@ -46,23 +46,16 @@ II.	Interpretability / Explainability Problem
 More complex models tend to be more precise and accurate, but less interpretable. Interpretable models tend to be less accurate accordingly (interpretation-precision trade-off). Machine learning algorithms may be classified as follows, according to their level of interpretability: 
 
 a.	Interpretable (simple) models:
-
-a.	Linear regression,
-
-b.	Logistic regression,
-
-c.	Simple decision trees
+  a.	Linear regression,
+  b.	Logistic regression,
+  c.	Simple decision trees
 
 b.	Black box models:
-
-a.	Deep Neural Networks
-
-b.	Support Vector Machines
-
-c.	Ensemble methods: Boosting and random forest
+  a.	Deep Neural Networks
+  b.	Support Vector Machines
+  c.	Ensemble methods: Boosting and random forest
 
 c.	Reinforcement learning (RL) / Deep Reinforcement Learning (DRL)
-
 d.	Generative Artificial Intelligence / LLMs
 
 The interpretability problem is more complicated for unsupervised learning, in particular, RL, being a trial-and-error learning algorithm, where an autonomous agent takes actions to find optimal solution through a learning process based on reward.  Generative AI algorithms have a totally different nature, in terms of their decision taking mechanisms. Language models are their primary mechanisms, but they have many sub-operations including RL, Deep Neural Networks etc. Their interpretation and legal requirements for their explanation should be applied in line with their such unique and complex nature. 
@@ -105,11 +98,13 @@ e.	test comprised of detailed questions about architecture and implementation of
 f.	subject centric explanations .
 
 From legal perspective, explanations for automated decision making should be concrete and local (meaningful for data subject) and in a manner to enable data subject to contest to the respective decision. 
+
 Meaningful information is required from fundamental right perspective, in accordance with transparency requirement. This is a general requirement and is not defined under the legislation. An explicit reference is made to parameters and their weighting in certain legislations (P2B Regulation, Consumer Right Directive). AI Act provide more generic provisions with respect to the type of explanation to be provided . 
 
 IV.	Types of Explanation/Interpretability
 
 From a technical view, a basic distinction can be made as intrinsic and post-hoc interpretability. Intrinsic interpretability is the information derived from the model itself, as it is interpretable (e.g., linear regression). Post hoc interpretability are technics to interpret the model, after the deployment of the model, without considering the inner structure of the same.  
+
 We will not dive into the detailed explanations about types of explanations. We will focus on counterfactual examples, as accepted in C-203/22 (CK) case . Counterfactual examples allow to understand “the smallest change” to be made to have a possible outcome from the respective algorithm, without diving deep into the algorithms inner mechanism , thus, gives a (limited) concrete information to the individual for its position vis-à-vis algorithm. 
 
 V.	CJEU Case 
@@ -138,9 +133,10 @@ D.	IMPLEMENTATION
 
 We wish to apply legal requirements of the CJEU case law on the following concrete examples with a supervised learning algorithm:
 a)	Hiring Dataset (synthetic data),
-b)	IBM HR Analytics Attrition Dataset .
+b)	IBM HR Analytics Attrition Dataset.
 
 Hiring dataset has been chosen as an implementation of a use case, having direct normative effect on the individual(s) (normative effect). IBM HR Analytic Attrition Dataset’s implementation has an indirect effect on the individuals’ economic situation (distributive effect). This use case may also constitute an example of so-called “normative feedback loop”. 
+
 Within the scope of this research, a black-box supervised learning algorithm (Random Forest) will be trained and tested on the abovementioned datasets, counterfactual examples will be generated with the help of an existing xAI framework (m-dice library) and results will be converted to natural language explanation with the help of the LLM (OpenAI / gpt-4.1-mini). 
 
 I.	Employee Hiring Data
@@ -151,9 +147,6 @@ As the algorithm’s outcome directly affect the decision to hire or not, the us
 a.	Dataset
  
 A synthetic dataset has been generated, in code, randomly, as the subject of this work is to illustrate counterfactual examples and analyze their content. The following features are used in the dataset. 
-
- 
-Figure 1: Features Used by the Algorithm
 
 b.	Model / xAI Library 
 
@@ -167,30 +160,24 @@ c.	Counterfactual Example Generation
 
 An instance has been chosen from test data and used for counterfactual example generation.  The following instance has been chosen: 
 
-
- 
-Figure 2: Instance Used for counterfactual example
-
 The counterfactual examples have been generated with Dice library, with the following approaches. 
 
 -	With all features
-
-  
-Figure 3: Counterfactual Examples with All Features
 
 Generated counterfactual examples contain variances of the age variable. Accordingly, these counterfactual examples may not be beneficial for the individual, since it is not possible to be younger in real life. Thus, we generated counterfactual examples on the condition that age variable is constant. 
 
 -	Age variable excluded
 
- 
-Figure 4: Counterfactual Examples without Age Variable
-
 As shown in Figure 4, only variables that can be changed by the candidate are used to create counterfactual explanations. In the counterfactual examples, Coding Score and Interview Score is higher, which is a reasonable explanation and guidance for the candidate.
 
 d.	LLM Explanation Generation
+
 OpenAI’s “gpt-4.1-mini” model is used for natural language explanation generation. API call has been made to OpenAI API with a prompt to generate explanation for counterfactual explanation generated above with Dice.
+
 i.	Explanation for Each Counterfactual Example
+
 First, LLM is asked to generate natural language explanations for each counterfactual explanation. The result is as follows: 
+
 “1) Explanation for CF #1  
 - Changed features: CodingScore increased from 72 to 79, InterviewScore increased from 59 to 61.  
 - Explanation: Improving both your coding test score and interview performance shows stronger skills and better preparation, which makes you more attractive to the hiring model. These improvements give the impression that you are more capable and ready for the job.  
@@ -209,7 +196,9 @@ As it can be seen, the explanation is quite long, and not very concise. For this
 ii.	A single explanation for all counterfactuals
 
 The following explanation has been provided by the LLM with a prompt to generate a single explanation: 
+
 “The original candidate’s hiring probability is notably lower than the counterfactual versions, mainly because they have lower scores on key skills and are slightly older than some of the more favored candidates. The model favors candidates with higher coding and interview scores, and a bit younger age seems to correlate with a higher chance of hiring in these examples. Experience and education level remain the same, so improvements there are less relevant in this case.
+
 To improve your chances, consider focusing on the following:
 - **Increase your coding test score** by practicing problem-solving and programming challenges to demonstrate stronger technical skills.
 - **Improve your interview performance** by preparing for common questions and practicing clear, confident communication.
@@ -217,20 +206,23 @@ To improve your chances, consider focusing on the following:
 - Since years of experience and education are unchanged, focus mainly on showcasing and enhancing your practical skills and interview readiness.”
 
 The explanation includes explanations both for the factors affecting the algorithm’s decision and actions that can be taken to have a positive outcome from the algorithm, based on the counterfactual examples.
+
 Additionally, although the age variable is not modified in the counterfactual examples, a minor explanation has been made by the LLM with respect to the age. This information is in fact true, for the model, but misleading for counterfactual examples.  
 
 This illustrates how LLM-generated explanations may inadvertently reintroduce legally sensitive inferences even where such variables are formally excluded from counterfactual generation.
 
-
 II.	IBM HR Attrition Dataset
+
 A black-box algorithm is trained on employee data and the outcome is used to determine the wage raise of current employees.
+
 The dataset has been imported from Kaggle. The dataset is not synthetic. The data shows whether the respective employees have quitted their job, according to several variables such as education level, environment satisfaction, job involvement, job satisfaction, relationship satisfaction  as well as more sensitive data such as marital status, age, gender etc. 
+
 The following use cases are assumed within the scope of our research:
 (i)	If the employee’s attrition probability is above a certain threshold (i.e., 0.50), less wage increase is applied (as they are more inclined to quit, so less investment is done.): 
- 
 (ii)	No threshold is set, but the bonus/salary increase is penalized with the probability.
  
 Both use cases have a normative effect on individuals, and even no explicit norm has been imposed in the scenario (ii), it is still normative, as it affects individual’s position, with the direct application of the probability metric. 
+
 In both use cases, use of algorithm on current employees can even cause normative feedback loop: the norm created by the algorithm—often operationalized through an explicit probability score—can influence individuals’ behavior, which will then constitute a data for the algorithm for the next time. For instance, an employee’s satisfaction level can decrease due to less bonus given, as a result of the algorithm. Such decreased job satisfaction level can be a data for the algorithm to give a less bonus, in next year. This feedback loop risk is more relevant, for the use case described in (ii) above, as increase in Attrition risk applies to all employees, without any decision boundary.  
 
 a.	Dataset
@@ -245,15 +237,9 @@ b.	Model / xAI Library
 
 The same model (Random Forest) is used, as the black-box algorithm. Sklearn library is used as to be compatible with Dice, which is used as xAI external library. 
 
-The model is trained as to constitute a base for counterfactual examples, basic data preprocessing and fine tuning (threshold/metrics check) steps have been followed up. The model has been trained on train data, upon splitting data into test and train sets. The test accuracy is acceptable, however, metrics show that the model does have many false negatives: 
-
- 	          
-Figure 4: Metrics with the application of 0.50 threshold. 
+The model is trained as to constitute a base for counterfactual examples, basic data preprocessing and fine tuning (threshold/metrics check) steps have been followed up. The model has been trained on train data, upon splitting data into test and train sets. The test accuracy is acceptable, however, metrics show that the model does have many false negatives.
 
 Accordingly, threshold has been revised to 0.25, as to have a better recall, and false negative ratio. 
-
-             
-Figure 5: Metrics with the application of 0.25 threshold. 
 
 Our focus is not model accuracy, thus, counterfactual examples are generated with the original probability threshold (0.5). 
 
@@ -261,27 +247,22 @@ c.	Counterfactual Example Generation
 
 An instance has been chosen from test data and used for counterfactual example generation.  The following instance has been generated: 
 
- 
-Figure 6: Instance Used for counterfactual example
-
 The counterfactual examples have been generated with Dice library, with the following approaches. 
 
 -	With all features
 
- 
-Figure 7: Counterfactual Examples with All Features (only modified features are shown)
-
 -	Discriminative/immutable variables excluded
+  
 We excluded the following variables: Age, Gender, MaritalStatus, Education, Department, EducationField, JobRole, DistanceFromHome, TotalWorkingYears, NumCompaniesWorked, YearsAtCompany, YearsInCurrentRole.
 
- 
-Figure 8: Counterfactual Examples without Discriminative/Immutable Variables (only modified features are shown)
-
 d.	LLM Explanation Generation
+
 OpenAI’s “gpt-4.1-mini” model is used for natural language explanation generation. API call has been made to OpenAI API with a prompt to generate explanation for counterfactual explanation generated above with Dice.
 
 i.	Explanation for Each Counterfactual Example
+
 First, LLM is asked to generate natural language explanations for each counterfactual explanation. The result is as follows: 
+
 “The machine learning model predicts a high attrition risk (Attrition=1) for the original employee profile based on several key factors. Notably, the employee has a relatively low **JobInvolvement** score of 1, which indicates minimal engagement with their work. Additionally, the **EnvironmentSatisfaction** score is also low at 2, suggesting dissatisfaction with the work environment. Furthermore, the employee has been in their current role for 7 years without a promotion, as indicated by the **YearsSinceLastPromotion** score of 1, which may contribute to feelings of stagnation and a desire to seek opportunities elsewhere. The combination of these factors likely signals to the model that the employee is at a higher risk of leaving the organization.
 ### Counterfactual Explanations
  **Counterfactual 1: OverTime=0, PercentSalaryHike=20**
@@ -297,9 +278,13 @@ First, LLM is asked to generate natural language explanations for each counterfa
    - **Change**: The **JobSatisfaction** decreases from 4 to 2, while **OverTime** changes from 1 to 0.
    - **Impact**: Although the decrease in job satisfaction appears counterintuitive, the reduction in overtime may still improve overall work-life balance, which can mitigate the negative impact of lower job satisfaction. This balance may lead to a more favorable view of the job, thus lowering attrition risk.
 In summary, the model's prediction of high attrition risk for the original employee is influenced by low job involvement, low environment satisfaction, and a lack of recent promotions. The counterfactual examples illustrate how changes in job level, salary increases, and work environment satisfaction can effectively reduce the predicted risk of attrition by enhancing engagement, satisfaction, and overall employee well-being.”
+
 As it can be seen above, the explanation is not concise and clear. The text is long enough and may include LLM’s own interpretation, even misleading ones. 
+
 ii.	A single explanation for all counterfactuals
+
 The LLM is prompted to provide a single explanation for all counterfactual examples. The result is as follows: 
+
 “The original candidate is currently at a high risk of attrition due to several factors that are less favorable compared to the counterfactual examples. Notably, the original candidate has a lower "PercentSalaryHike" and a lower "EnvironmentSatisfaction" score, which are critical indicators of employee satisfaction and retention. The counterfactuals show that candidates with higher salary increases and better satisfaction levels are less likely to leave the company. 
 Key features that appear to be important across the counterfactuals include:
 - **PercentSalaryHike**: Counterfactuals show higher salary increases (20% vs. 13%).
@@ -309,20 +294,32 @@ To improve their chances of being hired and reduce attrition risk, the original 
 - **Seek a Higher Salary Increase**: Aim for a salary increase of at least 20% during the next review to align with more successful candidates.
 - **Improve Environment Satisfaction**: Engage in activities or initiatives that enhance the workplace environment, such as team-building exercises or providing feedback to management.
 - **Consider Reducing Overtime**: If possible, try to limit overtime work to improve work-life balance, which may enhance overall job satisfaction.
-- **Enhance Job Satisfaction**: Explore opportunities for professional development or new projects that could lead to greater job satisfaction, especially if current satisfaction levels are low.” 
+- **Enhance Job Satisfaction**: Explore opportunities for professional development or new projects that could lead to greater job satisfaction, especially if current satisfaction levels are low.”
 By addressing these areas, the original candidate can better align with the profiles of employees who are less likely to leave the company.”
+
 The output of the LLM is satisfactory in terms of showing which conditions to be improved by the company administration to increase the satisfaction level of the employee. However, it does not provide any meaningful information to the data subject, regarding steps to be taken to improve its own situation, according to the algorithm.  
+
 E.	CONCLUSION
+
 As a result of the analysis of the employee hiring dataset and the IBM HR Attrition dataset, the overall finding is that counterfactual explanations are not equally informative for data subjects across all use cases.
+
 In the employee hiring scenario, counterfactual examples generated by the hiring algorithm provide meaningful and actionable information. The single natural language explanation produced by the LLM is clear and concise. When considered together with the table presented in Figure 4, the explanation offers sufficient insight into which skills the individual would need to improve in order to be classified as “hired” by the algorithm. As noted above, recent case law does not require the disclosure of detailed information regarding the internal functioning of the algorithm. Accordingly, there is no legal necessity to provide additional information on model architecture, feature importance, or similar technical details. Additionally, LLM generated explanation may be misleading, thus, mechanisms to check the accuracy of the same should be implemented. Any legal reliance on LLM-generated explanations should therefore be accompanied by procedural safeguards ensuring fidelity, auditability, and consistency across explanations.
+
 By contrast, counterfactual examples generated for the attrition risk algorithm do not offer relevant practical guidance to the data subject. The variables modified in the counterfactual scenarios largely fall within the employer’s discretion, leaving the data subject with limited capacity to alter the decisive factors influencing the algorithmic outcome. Nevertheless, such counterfactual explanations may still serve a legal function by enabling the data subject to contest the decision, even if they do not provide actionable guidance for changing the outcome. 
+
 Moreover, as counterfactual explanations constitute a form of local explanation, different counterfactuals may be generated across different iterations. This variability may be misleading for data subjects, particularly in models with a high number of variables. In addition, the selective exclusion of certain variables may further distort the explanatory value of counterfactuals. Where sensitive or immutable variables are excluded from the explanation, variations in these variables will not be visible to the data subject, despite their continued use by the algorithm in the decision-making process. Given that, under the C-203/22 (CK) decision, data controllers are not required to disclose further information about the algorithm, this limitation may substantially restrict the data subject’s ability to exercise effective oversight over automated decision-making systems.
+
 Finally, this research is limited to the illustration of counterfactual explanations using synthetic and publicly available datasets. The LLM is employed solely to generate natural language explanations for counterfactuals produced by the DICE framework. Neither the predictive models nor the counterfactual generation mechanisms were fine-tuned or systematically evaluated using performance metrics. Future research could build on this work by employing real-world datasets and incorporating data preprocessing, model evaluation, and fine-tuning stages.
+
 F.	DISCUSSION
+
 LLM is used in this research solely to generate a natural language explanation, for a supervised machine learning algorithm. LLMs can instantly provide explanations for their processes and their explanations can be revised with an instant prompt. Thus, their explanations are concise, clear and understandable, and instantly accessible, by nature. 
 On the other hand, LLMs are complex and comprised of many functions and operations and unique in terms of their nature and features. Thus, legal framework should be revised as to comply with unique features of LLMs and Generative AI algorithms. Technical mechanisms to ensure fidelity for answers and explanations provided by LLMs should be introduced. In this sense, mechanisms/layers, immune from uncertainty and vagueness related to large language models, should be implemented for the explanation of the LLMs.
+
 CJEU's case law requiring provision of counterfactual examples as an explanation is not in line with respect to the unique structure of the Generative AI/LLMs. As they have completely different process (generative process), and they are not discriminative by nature, counterfactual examples will not constitute a sufficient explanation, from legal and technical perspective. Additionally, creation of counterfactual examples is also a generative process, their fidelity and accuracy will be questionable.
+
 G.	REFERENCES
+
 Agata Ciabattoni and others ‘Normative Reasoning for AI (Dagstuhl Seminar 23151)’ (2023) In Dagstuhl Reports 13(4) <https://doi.org/10.4230/DagRep.13.4.1> accessed 26 February 2025.
 Amanda Musco Eklund ‘Frontex and ‘Algorithmic Discretion’ (Part I): The ETIAS Screening Rules and the Principle of Legality’, (2022) VerfBlog  <https://verfassungsblog.de/frontex-and-algorithmic-discretion-part-i> accessed 1 March 2025.
 Amanda Musco Eklund ‘Rule of Law Challenges of ‘Algorithmic Discretion’ & Automation in EU Border Control: A Case Study of ETIAS Through the Lens of Legality’ (2023) 25(3) European Journal of Migration and Law <https://doi.org/10.1163/15718166-12340152> accessed 1 March 2025.

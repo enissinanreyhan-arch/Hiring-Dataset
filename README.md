@@ -322,38 +322,68 @@ G.	REFERENCES
 
 Agata Ciabattoni and others ‘Normative Reasoning for AI (Dagstuhl Seminar 23151)’ (2023) In Dagstuhl Reports 13(4) <https://doi.org/10.4230/DagRep.13.4.1> accessed 26 February 2025.
 Amanda Musco Eklund ‘Frontex and ‘Algorithmic Discretion’ (Part I): The ETIAS Screening Rules and the Principle of Legality’, (2022) VerfBlog  <https://verfassungsblog.de/frontex-and-algorithmic-discretion-part-i> accessed 1 March 2025.
+
 Amanda Musco Eklund ‘Rule of Law Challenges of ‘Algorithmic Discretion’ & Automation in EU Border Control: A Case Study of ETIAS Through the Lens of Legality’ (2023) 25(3) European Journal of Migration and Law <https://doi.org/10.1163/15718166-12340152> accessed 1 March 2025.
+
 Andrew D Selbst and others, ‘Meaningful Information and the Right to Explanation’ (2017) 7(1) International Data Privacy Law <https://doi.org/10.1093/idpl/ipx022> accessed 30 January 2025.
+
 Ajaya Adhikari and others, ‘Leafage: Example-Based and Feature Importance-Based Explanations for Black-Box ML Models’ (2019) FUZZ-IEEE <https://doi.org/10.1109/fuzz-ieee.2019.8858846> accessed 30 January 2025.
+
 Bryce Goodman and others, ‘European Union Regulations on Algorithmic Decision-Making and a “Right to Explanation”’ (2017) 38(3) AI Magazine <https://doi.org/10.1609/aimag.v38i3.2741> accessed 30 January 2025.
+
 Case C 203/22 CK v Magistrat der Stadt Wien and Dun & Bradstreet Austria GmbH [2025] ECLI:EU:C:2025 <https://curia.europa.eu/juris/document/document.jsf?docid=295841&doclang=EN> accessed 15 June 2025.
+
 Chiara Patricia Drolsbach and others  ‘Content Moderation on Social Media in the EU: Insights From the DSA Transparency Database’ (2024) In Companion Proceedings of the ACM Web Conference 2024 (WWW '24) Association for Computing Machinery <https://doi.org/10.1145/3589335.3651482> accessed 1 March 2025.
+
 Christoph Molnar ‘Interpretable Machine Learning: A Guide for Making Black Box Models Explainable’ <https://christophm.github.io/interpretable-ml-book> accessed 1 June 2025.
 Chiyuan Zhang and others ‘A Study on Overfitting in Deep Reinforcement Learning’ (2018) <https://arxiv.org/abs/1804.06893> accessed 1 March 2025.
+
 Derya Ozkul ‘Automating Immigration and Asylum: The Uses of New Technologies in Migration and Asylum Governance in Europe’  (2023) Oxford: Refugee Studies Centre, University of Oxford <https://www.rsc.ox.ac.uk/publications/automating-immigration-and-asylum-the-uses-of-new-technologies-in-migration-and-asylum-governance-in-europe> accessed 1 March 2025.
+
 Elena Falletti ‘Credit scoring and transparency between the AI Act and the Court of Justice of the European Union’ (2024) < https://ceur-ws.org/Vol-3744/paper7.pdf > accessed on 1 March 2025.
+
 Erika Puiutta and others, ‘Explainable reinforcement learning: A survey’ (2020) arXiv preprint <http://arxiv.org/abs/2005.06247> accessed 31 January 2025.
+
 George A. Vouros, ‘Explainable Deep Reinforcement Learning: State of the Art and Challenges’ (2023) 1(1) <https://doi.org/10.1145/3527448> accessed 31 January 2025.
+
 Gianclaudio Malgieri and others, ‘Why a Right to Legibility of Automated Decision-Making Exists in the General Data Protection Regulation’ (2017) 7 (4) International Data Privacy Law <https://doi.org/10.1093/idpl/ipx019> accessed 30 January 2025.
+
 Hamed Taherdoost ‘Enhancing Social Media Platforms with Machine Learning Algorithms and Neural Networks’ (2023) 16(6) Algorithms <https://doi.org/10.3390/a16060271> accessed 26 February 2025.
+
 Heike Felzmann and others ‘Transparency you can trust: Transparency requirements for artificial intelligence between legal norms and contextual concerns’ (2019) 6(1) Big Data & Society <https://doi.org/10.1177/2053951719860542> accessed 26 February 2025.
+
 Lilian Edwards and others, ‘Slave to the Algorithm? Why a Right to Explanation Is Probably Not the Remedy You Are Looking For’ (2017) 16(18) Duke Law & Technology Review <https://doi.org/10.2139/ssrn.2972855> accessed 30 January 2025.
+
 Lundberg and others, ‘A Unified Approach to Interpreting Model Predictions’ (2017) Neural Information Processing Systems <https://arxiv.org/abs/1705.07874> accessed 31 January 2025.
 Maja Brkan and others, ‘Legal and Technical Feasibility of the GDPR’s Quest for Explanation of Algorithmic Decisions: Of Black Boxes, White Boxes and Fata Morganas’ (2020) 11(1) European Journal of Risk Regulation <https://doi.org/10.1017/err.2020.10> accessed 30 January 2025.
+
 Marco Tulio Ribeiro and others, ‘Why Should I Trust You? Explaining the Predictions of Any Classifier’ (2016) Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining <https://doi.org/10.1145/2939672.2939778> accessed 31 January 2025.
+
 Michaela Benk and others, ‘Explaining Interpretable Machine Learning: Theory, Methods and Applications’ (2020) SSRN Electronic Journal <https://doi.org/10.2139/ssrn.3748268> accessed 31 January 2025.
+
 Randa Natras and others ‘Machine Learning Model Development for Space Weather Forecasting in the Ionosphere’ (2021) <https://www.researchgate.net/publication/359415194_Machine_Learning_Model_Development_for_Space_Weather_Forecasting_in_the_Ionosphere> accessed 26 February 2025.
+
 Nicolò Pagan and others ‘A classification of feedback loops and their relation to biases in automated decision-making systems’ (2023) <https://arxiv.org/abs/2305.06055> accessed 01 December 2025.
+
 Paulina Jo Pesch and others ‘Data Protection and Machine-Learning-Supported Decision-Making at the EU Border: ETIAS Profiling Under Scrutiny’ (2022) In Privacy Technologies  and Policy: 10th Annual Privacy Forum, APF 2022, Warsaw, Poland, June 23–24, 2022, Proceedings. Springer-Verlag, Berlin, Heidelberg <https://doi.org/10.1007/978-3-031-07315-1_4> accessed 26 February 2025.
+
 Pintelas, Emmanuel and others, ‘A Grey-Box Ensemble Model Exploiting Black-Box Accuracy and White-Box Intrinsic Interpretability" (2020) 13(1) Algorithms <https://doi.org/10.3390/a13010017> accessed 31 January 2025.
+
 Roger Brownsword ‘Technological management and the Rule of Law’ (2016) 8(1) Law, Innovation and Technology <https://doi.org/10.1080/17579961.2016.1161891> accessed 26 February 2025.
 Sandra Wachter and others, ‘Counterfactual Explanations without Opening the Black Box: Automated Decisions and the GDPR’ (2017) 31(2) Harvard Journal of Law & Technology <https://doi.org/10.2139/ssrn.3063289> accessed 31 January 2025.
+
 Sandra Wachter and others, ‘Why a Right to Explanation of Automated Decision- Making Does Not Exist in the General Data Protection Regulation’ (2016) International Data Privacy Law < https://doi.org/10.2139/ssrn.2903469> accessed 31 January 2025.
+
 Sharma, Sanjay and others, ‘Definitions, Methods, and Applications in Interpretable Machine Learning’ (2019) 116(44) Proceedings of the National Academy of Sciences <https://doi.org/10.1073/pnas.1900654116> accessed 31 January 2025.
+
 Stephanie Milani and others, ‘Explanaible Reinforcement Learning: A Survey and Comparative Review’ (2024) 56(7) ACM Comput. Surv <https://doi.org/10.1145/3616864> accessed 31 January 2025.
+
 Shikhar Sharma ‘A Visual Introduction to Neural Networks’ (2017) TDS Archive <https://medium.com/towards-data-science/a-visual-introduction-to-neural-networks-68586b0b733b> accessed 26 February 2025.
+
 Teresa Quintel ‘Connecting Personal Data of Third Country Nationals: Interoperability of EU Databases in the Light of the CJEU's Case Law on Data Retention’ (2018) SSRN Electronic Journal. <https://10.2139/ssrn.3132506> accessed 1 March 2025.
+
 Wells Lindsay ‘Explainable AI and Reinforcement Learning—A Systematic Review of Current Approaches and Trends’ (2021) 4 Frontiers in Artificial Intelligence <https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2021.550030> accessed 1 March 2025.
+
 
 
 
